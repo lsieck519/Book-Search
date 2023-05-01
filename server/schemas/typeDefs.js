@@ -18,14 +18,23 @@ const typeDefs = gql`
     title: String!
   }
 
+  input InputBook {
+    authors: [String]
+    description: String!
+    bookId: String!
+    image: String
+    link: String
+    title: String!
+  }
+
   type Query {
     me: User
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!): Auth
-    saveBook(newBook: bookInput!): User
+    createUser(username: String!, email: String!, password: String!): Auth
+    saveBook(newBook: InputBook!): User
     deleteBook(bookId: ID!): User
   }
 
